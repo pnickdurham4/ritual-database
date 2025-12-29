@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #b8b2a7;
+    background-color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        #c9c1b8 10%,
+        #c9c1b8 90%,
+        transparent 100%);
+    opacity: 0.15;
+    margin-left: 4vw;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        #c9c1b8 10%,
+        #c9c1b8 90%,
+        transparent 100%);
+    opacity: 0.15;
+    margin-right: 4vw;
+}
+
+main {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 6rem 4vw;
+    min-height: 100vh;
+}
+
+header {
+    margin-bottom: 6rem;
+    text-align: left;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid #2d2d2d;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    margin: 0 0 3rem 0;
+    display: block;
+    opacity: 0.8;
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    color: #d4d0c8;
+    letter-spacing: -0.02em;
+}
+
+.quotes {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 0;
+}
+
+.quote {
+    font-size: 1.0625rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: #8a8478;
+    margin: 0;
+    padding-left: 1.5rem;
+    border-left: 1px solid #2d2d2d;
+}
+
+cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    font-style: normal;
+    color: #6a6a6a;
+    letter-spacing: 0.02em;
+}
+
+.index {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.ritual-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ritual-link {
+    color: #b8b2a7;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.6;
+    transition: color 0.2s ease;
+    display: inline-block;
+}
+
+.ritual-link:hover {
+    color: #d4d0c8;
+}
+
+.ritual-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.ritual-category {
+    font-size: 0.6875rem;
+    color: #d4d0c8;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+}
+
+.ritual-tag {
+    font-size: 0.6875rem;
+    color: #c9c1b8;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+}
+
+.ritual-date {
+    font-size: 0.875rem;
+    color: #6a6a6a;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    body::before {
+        margin-left: 6vw;
+    }
+
+    body::after {
+        margin-right: 6vw;
+    }
+
+    main {
+        padding: 4rem 6vw;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .quotes {
+        gap: 1.5rem;
+    }
+
+    .quote {
+        font-size: 1rem;
+        padding-left: 1rem;
+    }
+
+    cite {
+        font-size: 0.8125rem;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .ritual-link {
+        font-size: 1.125rem;
+    }
+
+    .index {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body::before {
+        margin-left: 5vw;
+    }
+
+    body::after {
+        margin-right: 5vw;
+    }
+
+    main {
+        padding: 3rem 5vw;
+    }
+
+    h1 {
+        font-size: 1.375rem;
+        line-height: 1.5;
+        margin-bottom: 2.5rem;
+    }
+
+    header {
+        margin-bottom: 4rem;
+        padding-bottom: 3rem;
+    }
+
+    .quotes {
+        gap: 1.25rem;
+    }
+
+    .quote {
+        font-size: 0.9375rem;
+    }
+
+    .ritual-link {
+        font-size: 1.0625rem;
+    }
+}

@@ -1,0 +1,16 @@
+# Alternative design files (local experimentation only)
+threshold.html
+threshold.css
+accumulation.html
+accumulation.css
+incantation.html
+incantation.css
+
+# Claude Code metadata
+.claude/
+
+# System files
+.DS_Store
+*.swp
+*.swo
+*~
