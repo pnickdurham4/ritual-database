@@ -18,6 +18,7 @@ class RitualsArchive {
     await this.loadRituals();
     this.setupEventListeners();
     this.setupModal();
+    this.setupVideoModal();
     this.applyFilters();
     this.renderRituals(this.perPage);
     this.setupInfiniteScroll();
@@ -53,6 +54,17 @@ class RitualsArchive {
       if (e.target.classList.contains('filter-chip')) {
         this.toggleFilter(e.target);
       }
+
+      if (e.target.classList.contains('ritual-link')) {
+        const url = e.target.getAttribute('href');
+        const mediaType = e.target.dataset.mediaType;
+
+        if (mediaType === 'video') {
+          if (this.showVideoModal(url)) {
+            e.preventDefault();
+          }
+        }
+      }
     });
   }
 
@@ -74,6 +86,50 @@ class RitualsArchive {
         modal.classList.remove('active');
       }
     });
+  }
+
+  setupVideoModal() {
+    const videoModal = document.getElementById('video-modal');
+    const videoIframe = document.getElementById('video-iframe');
+    const closeBtn = document.querySelector('.video-modal-close');
+
+    closeBtn.addEventListener('click', () => {
+      videoModal.classList.remove('active');
+      videoIframe.src = '';
+    });
+
+    videoModal.addEventListener('click', (e) => {
+      if (e.target === videoModal) {
+        videoModal.classList.remove('active');
+        videoIframe.src = '';
+      }
+    });
+  }
+
+  extractYouTubeId(url) {
+    const patterns = [
+      /youtube\.com\/watch\?v=([^&]+)/,
+      /youtu\.be\/([^?]+)/,
+      /youtube\.com\/embed\/([^?]+)/
+    ];
+
+    for (const pattern of patterns) {
+      const match = url.match(pattern);
+      if (match) return match[1];
+    }
+    return null;
+  }
+
+  showVideoModal(url) {
+    const videoId = this.extractYouTubeId(url);
+    if (videoId) {
+      const videoModal = document.getElementById('video-modal');
+      const videoIframe = document.getElementById('video-iframe');
+      videoIframe.src = `https://www.youtube.com/embed/${videoId}`;
+      videoModal.classList.add('active');
+      return true;
+    }
+    return false;
   }
 
   toggleFilter(chip) {
@@ -156,7 +212,7 @@ class RitualsArchive {
     article.className = 'ritual-entry';
 
     article.innerHTML = `
-      <a href="${ritual.url}" target="_blank" class="ritual-link">${ritual.title}</a>
+      <a href="${ritual.url}" target="_blank" class="ritual-link" data-media-type="${ritual.mediaType}">${ritual.title}</a>
       <div class="ritual-meta">
         <span class="ritual-category">${ritual.category}</span>
         <span class="ritual-tag">${ritual.mediaType}</span>

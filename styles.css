@@ -14,61 +14,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.hero {
-    position: relative;
-    width: 100vw;
-    height: 65vh;
-    min-height: 500px;
-    overflow: hidden;
-}
-
-.hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    filter: saturate(0.85);
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40%;
-    background: linear-gradient(to bottom, transparent, rgba(26, 26, 26, 0.7));
-    pointer-events: none;
-}
-
-.hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.logo-hero {
-    width: 60px;
-    height: 60px;
-    opacity: 0.9;
-}
-
-.hero-title {
-    font-size: 2rem;
-    font-weight: 400;
-    color: #c9c1b8;
-    letter-spacing: 0.05em;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-}
-
 .container {
     display: flex;
     max-width: 1400px;
@@ -348,6 +293,27 @@ cite {
     color: #6a6a6a;
 }
 
+.video-modal-content {
+    max-width: 900px;
+    padding: 2rem;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 @media (max-width: 1024px) {
     .sidebar {
         width: 35%;
@@ -355,20 +321,6 @@ cite {
 }
 
 @media (max-width: 768px) {
-    .hero {
-        height: 50vh;
-        min-height: 400px;
-    }
-
-    .hero-title {
-        font-size: 1.5rem;
-    }
-
-    .logo-hero {
-        width: 45px;
-        height: 45px;
-    }
-
     .container {
         flex-direction: column;
         padding: 2rem 1.5rem;

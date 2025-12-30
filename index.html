@@ -10,17 +10,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="hero">
-        <img src="IMG_9372.jpg" alt="Ancient archway threshold">
-        <div class="hero-content">
-            <svg class="logo-hero" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="40" cy="40" r="15" fill="none" stroke="#c9c1b8" stroke-width="1.5"/>
-                <line x1="40" y1="15" x2="40" y2="65" stroke="#c9c1b8" stroke-width="1.5"/>
-            </svg>
-            <h1 class="hero-title">Rituals Archive</h1>
-        </div>
-    </div>
-
     <div class="container">
         <aside class="sidebar">
             <h1 class="sidebar-title">A database documenting modern human rituals</h1>
@@ -91,6 +80,15 @@
                     "Ritual and ceremony in their due times kept the world under the sky and the stars in their courses."
                     <cite>— Ursula K. Le Guin</cite>
                 </blockquote>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="video-modal">
+        <div class="modal-content video-modal-content">
+            <button class="modal-close video-modal-close">&times;</button>
+            <div class="video-container">
+                <iframe id="video-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
