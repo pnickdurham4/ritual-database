@@ -1,0 +1,22 @@
+{
+  "rituals": [
+    {
+      "id": 1,
+      "title": "Wemby starts a new tradition after Tuesday's victory over the Thunder",
+      "url": "https://x.com/underdognba/status/2003677565337366685?s=46",
+      "category": "sports",
+      "mediaType": "tweet",
+      "date": "2025-12-29",
+      "dateDisplay": "December 29, 2025"
+    },
+    {
+      "id": 2,
+      "title": "Phil Jackson on mindfulness with the Chicago Bulls",
+      "url": "https://www.youtube.com/watch?v=aqz7R-QalqY",
+      "category": "sports",
+      "mediaType": "video",
+      "date": "2025-12-29",
+      "dateDisplay": "December 29, 2025"
+    }
+  ]
+}

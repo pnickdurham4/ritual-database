@@ -12,77 +12,323 @@ body {
     background-color: #1a1a1a;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 65vh;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: saturate(0.85);
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to bottom, transparent, rgba(26, 26, 26, 0.7));
+    pointer-events: none;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo-hero {
+    width: 60px;
+    height: 60px;
+    opacity: 0.9;
+}
+
+.hero-title {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #c9c1b8;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 3rem;
+    padding: 3rem 2rem;
+}
+
+.sidebar {
+    position: sticky;
+    top: 2rem;
+    width: 30%;
+    max-width: 350px;
+    height: fit-content;
+    padding: 0;
+}
+
+.sidebar-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #d4d0c8;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    color: #b8b2a7;
+    background-color: transparent;
+    border: 1px solid #2d2d2d;
+    border-radius: 0;
+    outline: none;
+    transition: border-color 0.2s ease;
+    margin-bottom: 2rem;
+}
+
+.search-input::placeholder {
+    color: #6a6a6a;
+    font-style: italic;
+}
+
+.search-input:focus {
+    border-color: #c9c1b8;
+}
+
+.filter-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.filter-group-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-label {
+    font-size: 0.75rem;
+    color: #6a6a6a;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+}
+
+.filter-chip {
+    padding: 0.5rem 0.875rem;
+    font-family: 'EB Garamond', serif;
+    font-size: 0.9375rem;
+    color: #b8b2a7;
+    background-color: transparent;
+    border: 1px solid #2d2d2d;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: lowercase;
+    text-align: left;
+}
+
+.filter-chip:hover {
+    border-color: #c9c1b8;
+    color: #d4d0c8;
+}
+
+.filter-chip.active {
+    background-color: #c9c1b8;
+    color: #1a1a1a;
+    border-color: #c9c1b8;
+}
+
+.results-count-sidebar {
+    font-size: 0.875rem;
+    color: #6a6a6a;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.rotating-quote {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #2d2d2d;
+    margin-bottom: 2rem;
+}
+
+.quote-small {
+    font-size: 0.9375rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: #8a8478;
+}
+
+.quote-small cite {
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    font-style: normal;
+    color: #6a6a6a;
+}
+
+.about-link {
+    width: 100%;
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    color: #b8b2a7;
+    background: transparent;
+    border: 1px solid #2d2d2d;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.about-link:hover {
+    border-color: #c9c1b8;
+    color: #d4d0c8;
+}
+
+.content-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    align-content: start;
+}
+
+.ritual-entry {
+    border: 1px solid #2d2d2d;
+    padding: 1.5rem;
+    transition: border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ritual-entry:hover {
+    border-color: #3d3d3d;
+}
+
+.ritual-link {
+    color: #b8b2a7;
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.5;
+    transition: color 0.2s ease;
+}
+
+.ritual-link:hover {
+    color: #d4d0c8;
+}
+
+.ritual-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.ritual-category,
+.ritual-tag {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.ritual-category {
+    color: #d4d0c8;
+}
+
+.ritual-tag {
+    color: #c9c1b8;
+}
+
+.ritual-date {
+    font-size: 0.8125rem;
+    color: #6a6a6a;
+    font-style: italic;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem;
+    color: #6a6a6a;
+    font-style: italic;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    border: 1px solid #3d3d3d;
+    padding: 3rem;
+    max-width: 700px;
+    max-height: 80vh;
+    overflow-y: auto;
     position: relative;
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom,
-        transparent 0%,
-        #c9c1b8 10%,
-        #c9c1b8 90%,
-        transparent 100%);
-    opacity: 0.15;
-    margin-left: 4vw;
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: #b8b2a7;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
 }
 
-body::after {
-    content: '';
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom,
-        transparent 0%,
-        #c9c1b8 10%,
-        #c9c1b8 90%,
-        transparent 100%);
-    opacity: 0.15;
-    margin-right: 4vw;
-}
-
-main {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 6rem 4vw;
-    min-height: 100vh;
-}
-
-header {
-    margin-bottom: 6rem;
-    text-align: left;
-    padding-bottom: 4rem;
-    border-bottom: 1px solid #2d2d2d;
-}
-
-.logo {
-    width: 45px;
-    height: 45px;
-    margin: 0 0 3rem 0;
-    display: block;
-    opacity: 0.8;
-}
-
-h1 {
-    font-size: 1.75rem;
-    font-weight: 400;
-    line-height: 1.6;
-    margin-bottom: 3rem;
+.modal-content h2 {
     color: #d4d0c8;
-    letter-spacing: -0.02em;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
 }
 
 .quotes {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    margin-top: 0;
 }
 
 .quote {
@@ -90,7 +336,6 @@ h1 {
     font-style: italic;
     line-height: 1.7;
     color: #8a8478;
-    margin: 0;
     padding-left: 1.5rem;
     border-left: 1px solid #2d2d2d;
 }
@@ -101,141 +346,46 @@ cite {
     font-size: 0.875rem;
     font-style: normal;
     color: #6a6a6a;
-    letter-spacing: 0.02em;
 }
 
-.index {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-}
-
-.ritual-entry {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.ritual-link {
-    color: #b8b2a7;
-    text-decoration: none;
-    font-size: 1.25rem;
-    font-weight: 400;
-    line-height: 1.6;
-    transition: color 0.2s ease;
-    display: inline-block;
-}
-
-.ritual-link:hover {
-    color: #d4d0c8;
-}
-
-.ritual-meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.ritual-category {
-    font-size: 0.6875rem;
-    color: #d4d0c8;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-weight: 500;
-}
-
-.ritual-tag {
-    font-size: 0.6875rem;
-    color: #c9c1b8;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-weight: 500;
-}
-
-.ritual-date {
-    font-size: 0.875rem;
-    color: #6a6a6a;
-    font-style: italic;
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 35%;
+    }
 }
 
 @media (max-width: 768px) {
-    body::before {
-        margin-left: 6vw;
+    .hero {
+        height: 50vh;
+        min-height: 400px;
     }
 
-    body::after {
-        margin-right: 6vw;
-    }
-
-    main {
-        padding: 4rem 6vw;
-    }
-
-    h1 {
+    .hero-title {
         font-size: 1.5rem;
     }
 
-    .quotes {
-        gap: 1.5rem;
+    .logo-hero {
+        width: 45px;
+        height: 45px;
     }
 
-    .quote {
-        font-size: 1rem;
-        padding-left: 1rem;
-    }
-
-    cite {
-        font-size: 0.8125rem;
-    }
-
-    .logo {
-        width: 40px;
-        height: 40px;
-    }
-
-    .ritual-link {
-        font-size: 1.125rem;
-    }
-
-    .index {
+    .container {
+        flex-direction: column;
+        padding: 2rem 1.5rem;
         gap: 2rem;
     }
-}
 
-@media (max-width: 480px) {
-    body::before {
-        margin-left: 5vw;
+    .sidebar {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #2d2d2d;
     }
 
-    body::after {
-        margin-right: 5vw;
-    }
-
-    main {
-        padding: 3rem 5vw;
-    }
-
-    h1 {
-        font-size: 1.375rem;
-        line-height: 1.5;
-        margin-bottom: 2.5rem;
-    }
-
-    header {
-        margin-bottom: 4rem;
-        padding-bottom: 3rem;
-    }
-
-    .quotes {
-        gap: 1.25rem;
-    }
-
-    .quote {
-        font-size: 0.9375rem;
-    }
-
-    .ritual-link {
-        font-size: 1.0625rem;
+    .content-grid {
+        grid-template-columns: 1fr;
+        padding: 0;
     }
 }
